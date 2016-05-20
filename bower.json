@@ -25,6 +25,7 @@
     "bourbon": "^4.2.6"
   },
   "dependencies": {
-    "masonry": "^4.0.0"
+    "masonry": "^4.0.0",
+    "pickadate": "^3.5.6"
   }
 }

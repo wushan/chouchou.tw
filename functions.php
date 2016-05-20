@@ -143,7 +143,7 @@ function neat_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary Menu', 'neat' ),
+		'primary-menu' => esc_html__( 'Primary Menu', 'neat' ),
 	) );
 
 	/*
@@ -245,4 +245,18 @@ function aa_enqueue_comments_reply() {
         wp_enqueue_script( 'comment-reply' );
     }
 }
+
+//Settings
+function middlemiddle_header_register( $wp_customize ) {
+    $wp_customize->add_setting( 'logo_header' ); // Add setting for logo uploader
+    // Add control for logo uploader (actual uploader)
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'fdt_logo_header', array(
+        'label'    => __( 'Upload Logo ( Header )', 'fdt' ),
+        'section'  => 'title_tagline',
+        'settings' => 'logo_header',
+    ) ) );
+}
+
+add_action( 'customize_register', 'middlemiddle_header_register' );
+
 ?>

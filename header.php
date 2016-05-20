@@ -17,10 +17,18 @@
 		<header id='header' class='headroom'>
 			<div id='brand'>
 				<div class='brand-title'>
-					<a href='<?php echo get_home_url(); ?>'>TONY</a>
+					<?php if ( get_theme_mod( 'logo_header' ) ) : ?>
+					    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" id="site-logo" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+					 
+					        <img src="<?php echo get_theme_mod( 'logo_header' ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+					 
+					    </a>
+					 
+					    <?php else : ?><h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+					    <?php endif; ?>
 				</div>
 			</div>
 			<nav>
-			<?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>
+			<?php wp_nav_menu( array( 'theme_location' => 'primary-menu' ) ); ?>
 			</nav>
 		</header>
